@@ -6,7 +6,7 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.gatech.team13.shelterfinder.WelcomeActivity">
+    tools:context="edu.gatech.team13.shelterfinder.Controllers.WelcomeActivity">
 
     <TextView
         android:layout_width="match_parent"
