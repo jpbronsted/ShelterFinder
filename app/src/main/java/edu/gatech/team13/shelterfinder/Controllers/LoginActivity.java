@@ -14,10 +14,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginPressed(android.view.View view) {
-        //TODO: handle what happens when the user presses "login" on the login screen
+        /*
+        TODO: take in the values stored in the username and password fields and compare them
+        against hardcoded username ("user") and password ("pass"); if the login is successful,
+        take the user to the main application screen (activity_main); if the login is unsuccessful,
+        make the text indicating an error visible (see "textview_failed_login_attempt" in
+        activity_login.xml)
+         */
     }
 
     public void onCancelPressed(android.view.View view) {
-        //TODO: handle what happens when the user presses "cancel" on the login screen
+        // TODO: take the user back to the welcome screen (activity_welcome)
     }
 }

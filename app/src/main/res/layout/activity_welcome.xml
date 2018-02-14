@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_login"
         android:text="Log In"
-        android:onClick="onLoginPressed"
+        android:onClick="onLoginSelectPressed"
         android:layout_below="@+id/textview_welcome"
         android:layout_marginTop="320dp"
         android:layout_marginLeft="80dp"/>

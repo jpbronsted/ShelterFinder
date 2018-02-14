@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import edu.gatech.team13.shelterfinder.R;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,11 +13,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void onLoginSelectPressed(android.view.View view) {
-        // TODO: take the user to the login screen
-    }
-
-    public void onSignupPressed(android.view.View view) {
-        // this button currently does not have any functionality
+    public void onLogoutPressed(android.view.View view) {
+        //TODO: take the user back to the welcome screen (activity_welcome)
     }
 }
