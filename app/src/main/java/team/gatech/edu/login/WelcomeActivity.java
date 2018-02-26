@@ -17,7 +17,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         toLogin = (Button) findViewById(R.id.btnToLogin);
 
-        final Intent login = new Intent(WelcomeActivity.this, MainActivity.class);
+        final Intent login = new Intent(WelcomeActivity.this, LoginActivity.class);
 
         toLogin.setOnClickListener(new View.OnClickListener() {
             @Override

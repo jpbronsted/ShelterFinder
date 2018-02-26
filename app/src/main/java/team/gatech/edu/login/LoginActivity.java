@@ -8,9 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Objects;
-
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText ID;
     private EditText Password;
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         ID = (EditText) findViewById(R.id.etID);
         Password = (EditText) findViewById(R.id.etPassword);
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void validate(String userID, String userPassword) {
         if ((userID.equals("user")) && (userPassword.equals("pass"))) {
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
             startActivity(intent);
         } else {
             counter--;
