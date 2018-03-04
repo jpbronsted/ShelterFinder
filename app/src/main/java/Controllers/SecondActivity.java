@@ -1,10 +1,12 @@
-package team.gatech.edu.login;
+package Controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import team.gatech.edu.login.R;
 
 public class SecondActivity extends AppCompatActivity {
 

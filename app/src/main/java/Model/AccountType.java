@@ -1,4 +1,4 @@
-package team.gatech.edu.login;
+package Model;
 
 /**
  * Created by jpbronsted on 2/26/18.
