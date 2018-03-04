@@ -30,12 +30,13 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(login);
             }
         });
-
         toRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(register);
             }
         });
+
+        // TODO: read in data from CSV on application startup
     }
 }
