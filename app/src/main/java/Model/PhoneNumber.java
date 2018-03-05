@@ -19,6 +19,14 @@ public class PhoneNumber {
         this(number / 10000000, (number % 10000000) / 1000, number % 1000);
     }
 
+    public PhoneNumber(String number) {
+        areaCode = Integer.valueOf(number.substring(number.indexOf('(') + 1,
+                number.indexOf(')')));
+        prefix = Integer.valueOf(number.substring(number.indexOf('-') - 3,
+                number.indexOf('-')));
+        lineNumber = Integer.valueOf(number.substring(number.indexOf("-") + 1));
+    }
+
     @Override
     public String toString() {
         return "(" + areaCode + ") " + prefix + "-" + lineNumber;

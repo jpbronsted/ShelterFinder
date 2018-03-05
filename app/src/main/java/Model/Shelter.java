@@ -13,24 +13,24 @@ public class Shelter {
     private Integer capacity;
     private Double latitude;
     private Double longitude;
-    private GenderRestriction genderRestriction;
+    private String restrictions;
 
-    private static HashMap<String, Shelter> shelterData;
+    public static HashMap<String, Shelter> shelterData = new HashMap<String, Shelter>();
 
     public Shelter(String name, PhoneNumber phoneNumber, Address address,
                    Integer capacity, Double latitude, Double longitude,
-                   GenderRestriction genderRestriction) {
+                   String restrictions) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.capacity = capacity;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.genderRestriction = genderRestriction;
+        this.restrictions = restrictions;
     }
 
     public Shelter() {
-        this("", null, null, 0, 0.0, 0.0, null);
+        this("", null, null, 0, 0.0, 0.0, "");
     }
 
     public void setAddress(Address address) {
@@ -57,16 +57,16 @@ public class Shelter {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setGenderRestriction(GenderRestriction genderRestriction) {
-        this.genderRestriction = genderRestriction;
+    public void setRestrictions(String restrictions) {
+        this.restrictions = restrictions;
     }
 
     public Address getAddress() {
         return address;
     }
 
-    public GenderRestriction getGenderRestriction() {
-        return genderRestriction;
+    public String getRestrictions() {
+        return restrictions;
     }
 
     public Double getLatitude() {
@@ -87,5 +87,14 @@ public class Shelter {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\n" + "Capacity: " + capacity + "\n"
+                + "Latitude :" + latitude + "\n" + "Longitude: "
+                + longitude + "\n" + "Restrictions: " + restrictions
+                + "\n" + "Phone Number: " + phoneNumber + "\n"
+                + "Address: " + "\n" + address + "\n\n";
     }
 }
