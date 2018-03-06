@@ -1,20 +1,20 @@
 package Controllers;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.content.Context;
 
-import Model.Address;
-import Model.PhoneNumber;
 import Model.Shelter;
 import team.gatech.edu.login.R;
 
 import org.apache.commons.csv.*;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
@@ -51,38 +51,33 @@ public class WelcomeActivity extends AppCompatActivity {
 
         if (startup) {
             startup = false;
-            readData();
+            try {
+                readData(getBaseContext());
+            } catch (IOException e) {
+                finish();
+            }
         }
     }
 
-    private void readData() {
-        File csvIn = new File("/home/jpbronsted/data.csv");
-        if (!(csvIn.exists())) {
-            return;
+    private void readData(Context context) throws IOException {
+        AssetManager assMan = context.getAssets();
+        InputStream inStream = assMan.open("data.csv");
+        CSVParser parser = CSVParser.parse(inStream, StandardCharsets.UTF_8,
+                CSVFormat.DEFAULT.withFirstRecordAsHeader());
+        Iterator<CSVRecord> iterator = parser.getRecords().iterator();
+        while (iterator.hasNext()) {
+            CSVRecord next = iterator.next();
+            String name = next.get("Shelter Name");
+            String capacity = next.get("Capacity");
+            String restrictions = next.get("Restrictions");
+            Double latitude = Double.valueOf(next.get("Latitude "));
+            Double longitude = Double.valueOf(next.get("Longitude "));
+            String address = next.get("Address");
+            String phoneNumber = next.get("Phone Number");
+            Shelter.shelterData.put(name, new Shelter(name, phoneNumber,
+                    address, capacity, latitude, longitude, restrictions));
         }
-        if (!(csvIn.canRead())) {
-            return;
-        }
-        CSVParser parser = null;
-        try {
-            parser = CSVParser.parse(csvIn, StandardCharsets.UTF_8,
-                    CSVFormat.DEFAULT);
-            Iterator<CSVRecord> iterator = parser.getRecords().iterator();
-            while (iterator.hasNext()) {
-                CSVRecord next = iterator.next();
-                String name = next.get("Shelter Name");
-                Integer capacity = Integer.valueOf(next.get("Capacity"));
-                String restrictions = next.get("Restrictions");
-                Double latitude = Double.valueOf(next.get("Latitude"));
-                Double longitude = Double.valueOf(next.get("Longitude"));
-                Address address = new Address(next.get("Address"));
-                PhoneNumber phoneNumber = new PhoneNumber(
-                        next.get("Phone Number"));
-                Shelter.shelterData.put(name, new Shelter(name, phoneNumber,
-                        address, capacity, latitude, longitude, restrictions));
-            }
-        } catch (IOException e) {
-            System.out.print("IO ERROR during data read");
-        }
+        parser.close();
+        inStream.close();
     }
 }

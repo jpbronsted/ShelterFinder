@@ -24,6 +24,9 @@ public class Address {
 
     public Address(String address) {
         String[] parsedAddress = address.split(",");
+        for (int i = 0; i < parsedAddress.length; i++) {
+            parsedAddress[i] = parsedAddress[i].trim();
+        }
         String streetName;
         String suite = "";
         Integer streetNumber;
@@ -42,7 +45,7 @@ public class Address {
             state = parsedAddress[2].substring(0,
                     parsedAddress[2].indexOf(' '));
             zipCode = Integer.valueOf(parsedAddress[2].substring(
-                    parsedAddress[2].indexOf(' ')));
+                    parsedAddress[2].indexOf(' ') + 1));
         }
         streetNumber = Integer.valueOf(parsedAddress[0].substring(
                 0, parsedAddress[0].indexOf(' ')));

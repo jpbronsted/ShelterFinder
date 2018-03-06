@@ -8,17 +8,17 @@ import java.util.HashMap;
 
 public class Shelter {
     private String name;
-    private PhoneNumber phoneNumber;
-    private Address address;
-    private Integer capacity;
+    private String phoneNumber;
+    private String address;
+    private String capacity;
     private Double latitude;
     private Double longitude;
     private String restrictions;
 
     public static HashMap<String, Shelter> shelterData = new HashMap<String, Shelter>();
 
-    public Shelter(String name, PhoneNumber phoneNumber, Address address,
-                   Integer capacity, Double latitude, Double longitude,
+    public Shelter(String name, String phoneNumber, String address,
+                   String capacity, Double latitude, Double longitude,
                    String restrictions) {
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -30,14 +30,14 @@ public class Shelter {
     }
 
     public Shelter() {
-        this("", null, null, 0, 0.0, 0.0, "");
+        this("", null, null, null, 0.0, 0.0, "");
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 
@@ -53,7 +53,7 @@ public class Shelter {
         this.name = name;
     }
 
-    public void setPhoneNumber(PhoneNumber phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -61,7 +61,7 @@ public class Shelter {
         this.restrictions = restrictions;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -77,11 +77,11 @@ public class Shelter {
         return longitude;
     }
 
-    public Integer getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
 
-    public PhoneNumber getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
