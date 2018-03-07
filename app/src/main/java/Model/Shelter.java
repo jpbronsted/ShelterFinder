@@ -97,4 +97,13 @@ public class Shelter {
                 + "\n" + "Phone Number: " + phoneNumber + "\n"
                 + "Address: " + "\n" + address + "\n\n";
     }
+
+    public static Shelter[] toArray() {
+        Shelter[] shelterArray = new Shelter[shelterData.size()];
+        int i = 0;
+        for (Shelter shelter : shelterData.values()) {
+            shelterArray[i++] = shelter;
+        }
+        return shelterArray;
+    }
 }
