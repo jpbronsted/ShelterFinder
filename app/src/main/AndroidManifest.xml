@@ -19,6 +19,7 @@
         <activity android:name="Controllers.SecondActivity" />
         <activity android:name="Controllers.LoginActivity" />
         <activity android:name="Controllers.RegisterActivity" />
+        <activity android:name="Controllers.DetailViewActivity" />
     </application>
 
 </manifest>

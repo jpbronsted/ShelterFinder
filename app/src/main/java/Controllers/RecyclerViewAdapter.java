@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -21,10 +22,15 @@ public class RecyclerViewAdapter
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
+        public Shelter shelter;
 
         public ViewHolder(TextView textView) {
             super(textView);
             this.textView = textView;
+        }
+
+        public Shelter getShelter() {
+            return shelter;
         }
     }
 
@@ -36,7 +42,7 @@ public class RecyclerViewAdapter
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType) {
-        TextView view = (TextView) LayoutInflater.from(parent.getContext())
+        final TextView view = (TextView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_card_layout, parent, false);
         return new RecyclerViewAdapter.ViewHolder(view);
     }
@@ -44,6 +50,7 @@ public class RecyclerViewAdapter
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.textView.setText(data[position].toString());
+        holder.shelter = data[position];
     }
 
     @Override
