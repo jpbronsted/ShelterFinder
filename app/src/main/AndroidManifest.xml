@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Controllers.SecondActivity" />
+        <activity android:name="Controllers.QueryResultsActivity" />
         <activity android:name="Controllers.LoginActivity" />
         <activity android:name="Controllers.RegisterActivity" />
         <activity android:name="Controllers.DetailViewActivity" />

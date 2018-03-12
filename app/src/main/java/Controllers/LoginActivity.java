@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         User requestedUser = User.userRegistry.get(userID);
         if (requestedUser != null &&
                 requestedUser.getPassword().equals(userPassword)) {
-            Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
+            Intent intent = new Intent(LoginActivity.this, QueryResultsActivity.class);
             startActivity(intent);
         } else {
             counter--;
