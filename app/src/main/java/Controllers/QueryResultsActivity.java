@@ -12,7 +12,6 @@ import team.gatech.edu.login.R;
 
 public class QueryResultsActivity extends AppCompatActivity {
 
-    //private Button Logout;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager manager;
@@ -23,9 +22,7 @@ public class QueryResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_results);
 
-        //Logout = (Button) findViewById(R.id.btnLogout);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewShelters);
-
         recyclerView.setHasFixedSize(true);
 
         manager = new LinearLayoutManager(this);
@@ -43,16 +40,6 @@ public class QueryResultsActivity extends AppCompatActivity {
         });
 
         recyclerView.addOnItemTouchListener(listener);
-
-        final Intent back = new Intent(QueryResultsActivity.this, WelcomeActivity.class);
-
-
-        /*Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(back);
-            }
-        });*/
     }
 
     private void detailView(View view, int position) {

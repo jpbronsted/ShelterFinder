@@ -20,6 +20,7 @@
         <activity android:name="Controllers.LoginActivity" />
         <activity android:name="Controllers.RegisterActivity" />
         <activity android:name="Controllers.DetailViewActivity" />
+        <activity android:name="Controllers.SearchActivity" />
     </application>
 
 </manifest>
