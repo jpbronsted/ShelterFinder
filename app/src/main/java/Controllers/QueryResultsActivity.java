@@ -15,12 +15,18 @@ public class QueryResultsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager manager;
-    private Shelter[] data = Shelter.toArray();
+    private Shelter[] data = Shelter.toArray();     //TODO(1): delete the assignment to Shelter.toArray()
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_results);
+
+        Intent startIntent = getIntent();
+
+        //TODO(2): parse the extras in "startIntent" to find out how the user narrowed down the search query
+
+        //TODO(3): search through the shelters (stored in a HashMap called Shelter.shelterData) and put only those that match requested search terms into the array called "data"
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewShelters);
         recyclerView.setHasFixedSize(true);
