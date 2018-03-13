@@ -21,6 +21,10 @@
         <activity android:name="Controllers.RegisterActivity" />
         <activity android:name="Controllers.DetailViewActivity" />
         <activity android:name="Controllers.SearchActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
