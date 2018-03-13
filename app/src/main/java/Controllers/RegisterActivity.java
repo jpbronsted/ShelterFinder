@@ -34,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
         type = (Spinner) findViewById(R.id.sprType);
         register = (Button) findViewById(R.id.btnRegister);
 
+       // type.setAdapter(new ArrayAdapter<AccountType>(this,android.R.layout.simple_spinner_item, AccountType.values()));
+
         ArrayAdapter<String> typeAdapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, AccountType.values());
         typeAdapter.setDropDownViewResource(
