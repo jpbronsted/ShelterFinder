@@ -24,7 +24,28 @@ public class QueryResultsActivity extends AppCompatActivity {
 
         Intent startIntent = getIntent();
 
-        //TODO(2): parse the extras in "startIntent" to find out how the user narrowed down the search query
+        Bundle options = startIntent.getExtras();
+        String shelterName;
+        String age;
+        String gender;
+
+        try {
+            shelterName = options.getString("narrowByShelterName");
+        } catch (NullPointerException e) {
+            shelterName = "";
+        }
+
+        try {
+            age = options.getString("narrowByAge");
+        } catch (NullPointerException e) {
+            age = "";
+        }
+
+        try {
+            gender = options.getString("narrowByGender");
+        } catch (NullPointerException e) {
+            gender = "";
+        }
 
         //TODO(3): search through the shelters (stored in a HashMap called Shelter.shelterData) and put only those that match requested search terms into the array called "data"
 
