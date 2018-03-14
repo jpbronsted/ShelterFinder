@@ -63,6 +63,29 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void prepareSearchResults() {
+        Bundle extras = toQueryResults.getExtras();
+
+        try {
+            extras.getString("narrowByShelterName");
+            toQueryResults.removeExtra("narrowByShelterName");
+        } catch (NullPointerException e) {
+            // do nothing
+        }
+
+        try {
+            extras.getString("narrowByAge");
+            toQueryResults.removeExtra("narrowByAge");
+        } catch (NullPointerException e) {
+            // do nothing
+        }
+
+        try {
+            extras.getString("narrowByGender");
+            toQueryResults.removeExtra("narrowByGender");
+        } catch (NullPointerException e) {
+            // do nothing
+        }
+
         if (!(searchShelterName.getText().toString().equals(""))) {
             toQueryResults.putExtra("narrowByShelterName",
                     searchShelterName.getText().toString());
