@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import Model.Shelter;
+import model.Shelter;
 import team.gatech.edu.login.R;
 
 public class QueryResultsActivity extends AppCompatActivity {
@@ -24,6 +24,7 @@ public class QueryResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_results);
+
 
         Intent startIntent = getIntent();
 

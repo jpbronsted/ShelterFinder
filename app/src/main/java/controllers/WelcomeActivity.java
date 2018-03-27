@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Context;
 
-import Model.Shelter;
+import model.Shelter;
 import team.gatech.edu.login.R;
 
 import org.apache.commons.csv.*;

@@ -1,16 +1,14 @@
-package Controllers;
+package controllers;
 
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import team.gatech.edu.login.R;
 
-import Model.Shelter;
+import model.Shelter;
 
 /**
  * Created by jpbronsted on 3/7/18.

@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="Controllers.WelcomeActivity">
+        <activity android:name="controllers.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Controllers.QueryResultsActivity" />
-        <activity android:name="Controllers.LoginActivity" />
-        <activity android:name="Controllers.RegisterActivity" />
-        <activity android:name="Controllers.DetailViewActivity" />
-        <activity android:name="Controllers.SearchActivity" />
+        <activity android:name="controllers.QueryResultsActivity" />
+        <activity android:name="controllers.LoginActivity" />
+        <activity android:name="controllers.RegisterActivity" />
+        <activity android:name="controllers.DetailViewActivity" />
+        <activity android:name="controllers.SearchActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

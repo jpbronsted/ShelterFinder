@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import team.gatech.edu.login.R;
-import Model.User;
+import model.User;
 
 public class LoginActivity extends AppCompatActivity {
 

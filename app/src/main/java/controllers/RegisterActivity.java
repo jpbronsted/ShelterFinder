@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import Model.AccountType;
+import model.AccountType;
 import team.gatech.edu.login.R;
-import Model.User;
+import model.User;
 
 /**
  * Created by jpbronsted on 2/26/18.
