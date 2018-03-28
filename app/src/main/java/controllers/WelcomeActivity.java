@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Context;
-
 import model.Shelter;
 import team.gatech.edu.login.R;
-
 import org.apache.commons.csv.*;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
