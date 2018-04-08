@@ -1,6 +1,7 @@
 package controllers;
 
 import android.content.Intent;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -103,7 +104,8 @@ public class QueryResultsActivity extends AppCompatActivity {
         startActivity(detailView);
     }
 
-    private Collection<Shelter> prepareSearchResults(String shelterName, String age, String gender) {
+    @VisibleForTesting
+    public static Collection<Shelter> prepareSearchResults(String shelterName, String age, String gender) {
         if (shelterName.equals("") && age.equals("") && gender.equals("")) {
             return Shelter.shelterData.values();
         }
