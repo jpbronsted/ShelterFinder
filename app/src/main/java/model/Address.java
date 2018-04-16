@@ -1,15 +1,19 @@
 package model;
 
-class Address {
-    private final String streetName;
-    private final Integer streetNumber;
-    private final String suite;
-    private final String city;
-    private State state;
-    private final Integer zipCode;
+/**
+ * Created by jpbronsted on 3/4/18.
+ */
 
-    private Address(String streetName, Integer streetNumber, String suite,
-                    String city, State state, Integer zipCode) {
+public class Address {
+    private String streetName;
+    private Integer streetNumber;
+    private String suite;
+    private String city;
+    private State state;
+    private Integer zipCode;
+
+    public Address(String streetName, Integer streetNumber, String suite,
+                   String city, State state, Integer zipCode) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.city = city;
@@ -64,7 +68,7 @@ class Address {
     @Override
     public String toString() {
         return streetNumber + streetName + "\n" + suite +
-                ("".equals(suite) ? "" : "\n") + city +
+                (suite.equals("") ? "" : "\n") + city +
                 state.getAbbreviation() + zipCode;
     }
 

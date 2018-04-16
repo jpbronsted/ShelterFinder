@@ -11,9 +11,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import team.gatech.edu.login.R;
 
-/**
- * create map
- */
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +22,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mapFragment.getMapAsync(this);
     }
 
-    @Override
     public void onMapReady(GoogleMap map) {
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(0, 0))

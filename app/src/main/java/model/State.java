@@ -1,8 +1,9 @@
 package model;
 
 /**
- * enum of US states
+ * Created by jpbronsted on 3/4/18.
  */
+
 public enum State {
     ALABAMA("AL"),
     ALASKA("AK"),
@@ -57,16 +58,12 @@ public enum State {
     DISTRICTOFCOLUMBIA("DC"),
     ERROR("ER");
 
-    private final String abbreviation;
+    private String abbreviation;
 
     State(String abbreviation) {
         this.abbreviation = abbreviation;
     }
 
-    /**
-     * get abbreviation of state
-     * @return abbreviation
-     */
     public String getAbbreviation() {
         return this.abbreviation;
     }

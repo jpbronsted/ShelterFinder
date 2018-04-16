@@ -11,39 +11,28 @@ import team.gatech.edu.login.R;
 import model.Shelter;
 
 /**
- * recycler view
+ * Created by jpbronsted on 3/7/18.
  */
+
 public class RecyclerViewAdapter
         extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private final Shelter[] data;
+    private Shelter[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
-        private Shelter shelter;
+        public TextView textView;
+        public Shelter shelter;
 
-        /**
-         * view holder
-         * @param textView text view
-         */
-        ViewHolder(TextView textView) {
+        public ViewHolder(TextView textView) {
             super(textView);
             this.textView = textView;
         }
 
-        /**
-         * get shelter
-         * @return shelter
-         */
         public Shelter getShelter() {
             return shelter;
         }
     }
 
-    /**
-     * recycler view constructor
-     * @param data data
-     */
-    RecyclerViewAdapter(Shelter[] data) {
+    public RecyclerViewAdapter(Shelter[] data) {
         this.data = data;
     }
 

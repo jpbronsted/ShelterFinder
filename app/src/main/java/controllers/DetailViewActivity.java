@@ -1,5 +1,6 @@
 package controllers;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -9,21 +10,34 @@ import team.gatech.edu.login.R;
 import android.view.View;
 import android.content.Intent;
 
-import java.util.Objects;
-
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collection;
 import model.Shelter;
 
 /**
- * Detailed View of shelters
+ * Created by jpbronsted on 3/7/18.
  */
+
 public class DetailViewActivity extends AppCompatActivity {
 
-    private TextView updatedVacancy;
-    private EditText claimVacancy;
-    private String shelterName;
-    private String capacity;
-    private final Shelter[] shel = Shelter.shelterData.values().toArray(new Shelter[0]);
-
+    TextView viewShelterName, Vacancy, updatedVacancy;
+    EditText claimVacancy;
+    Button backBtn, claimBtn, cancelBtn;
+    List<String> list;
+    String shelterName;
+    String capacity;
+    Shelter[] shel = Shelter.shelterData.values().toArray(new Shelter[0]);
+//    int[] shelcap = new int[shel.length];
+//    private void shelCap(Shelter[] shel) {
+//        for(int i = 0; i <= shel.length; i++) {
+//            shelcap[i] = Integer.parseInt(shel[i].getCapacity());
+//        }
+//    }
+//
 
 
 
@@ -32,13 +46,13 @@ public class DetailViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail_page);
 
-        Button backBtn = findViewById(R.id.backBtn);
-        Button claimBtn = findViewById(R.id.claimBtn);
-        Button cancelBtn = findViewById(R.id.cancelBtn);
-        TextView viewShelterName = findViewById(R.id.viewShelterName);
-        TextView vacancy = findViewById(R.id.Vacancy);
-        updatedVacancy = findViewById(R.id.updatedVacancy);
-        claimVacancy = findViewById(R.id.claimVacancy);
+        backBtn = (Button) findViewById(R.id.backBtn);
+        claimBtn = (Button) findViewById(R.id.claimBtn);
+        cancelBtn = (Button) findViewById(R.id.cancelBtn);
+        viewShelterName = (TextView) findViewById(R.id.viewShelterName);
+        Vacancy = (TextView) findViewById(R.id.Vacancy);
+        updatedVacancy = (TextView) findViewById(R.id.updatedVacancy);
+        claimVacancy = (EditText) findViewById(R.id.claimVacancy);
 
 
 
@@ -48,7 +62,7 @@ public class DetailViewActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String text = extras.getString("content");
-            int firstColon = Objects.requireNonNull(text).indexOf(":");
+            int firstColon = text.indexOf(":");
             int secondColon = text.indexOf(":",firstColon +1);
             int thirdColon = text.indexOf(":", secondColon + 1);
             shelterName = text.substring(firstColon + 1, secondColon - 8 );
@@ -95,9 +109,8 @@ public class DetailViewActivity extends AppCompatActivity {
                     shelterName = shelterName.replaceAll("\\s+","");
 
                     if (shelterName_1.equals(shelterName)) {
-                        if ((Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum) >= 0) {
-                            int newCapacity = Integer.parseInt(shelter.getCapacity()) -
-                                    claimedVacancyNum;
+                        if (Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum >= 0) {
+                            int newCapacity = Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum;
                             shelter.setCapacity("" + newCapacity);
                             updatedVacancy.setText(shelter.getCapacity());
                         }

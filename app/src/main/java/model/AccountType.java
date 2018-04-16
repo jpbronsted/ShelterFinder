@@ -1,12 +1,13 @@
 package model;
 
 /**
- * Defines Account Type
+ * Created by jpbronsted on 2/26/18.
  */
+
 public enum AccountType {
     USER("User"), ADMIN("Admin");
 
-    final String abbr;
+    String abbr = "";
     AccountType(String abbr) {
         this.abbr = abbr;
     }

@@ -8,14 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Objects;
-
 import team.gatech.edu.login.R;
 
 /**
- * Search shelter
+ * Created by jpbronsted on 3/12/18.
  */
+
 public class SearchActivity extends AppCompatActivity {
+
+    private Button logOut;
+    private Button search;
 
     private EditText searchShelterName;
     private EditText searchAge;
@@ -28,12 +30,12 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Button logOut = findViewById(R.id.btnLogout);
-        Button search = findViewById(R.id.btnSearch);
+        logOut = (Button) findViewById(R.id.btnLogout);
+        search = (Button) findViewById(R.id.btnSearch);
 
-        searchShelterName = findViewById(R.id.etSearchShelterName);
-        searchAge = findViewById(R.id.etSearchAge);
-        searchGender = findViewById(R.id.etSearchGender);
+        searchShelterName = (EditText) findViewById(R.id.etSearchShelterName);
+        searchAge = (EditText) findViewById(R.id.etSearchAge);
+        searchGender = (EditText) findViewById(R.id.etSearchGender);
 
         final Intent back = new Intent(SearchActivity.this,
                 WelcomeActivity.class);
@@ -59,35 +61,35 @@ public class SearchActivity extends AppCompatActivity {
         Bundle extras = toQueryResults.getExtras();
 
         try {
-            Objects.requireNonNull(extras).getString("narrowByShelterName");
+            extras.getString("narrowByShelterName");
             toQueryResults.removeExtra("narrowByShelterName");
         } catch (NullPointerException e) {
             // do nothing
         }
 
         try {
-            Objects.requireNonNull(extras).getString("narrowByAge");
+            extras.getString("narrowByAge");
             toQueryResults.removeExtra("narrowByAge");
         } catch (NullPointerException e) {
             // do nothing
         }
 
         try {
-            Objects.requireNonNull(extras).getString("narrowByGender");
+            extras.getString("narrowByGender");
             toQueryResults.removeExtra("narrowByGender");
         } catch (NullPointerException e) {
             // do nothing
         }
 
-        if (!("".equals(searchShelterName.getText().toString()))) {
+        if (!(searchShelterName.getText().toString().equals(""))) {
             toQueryResults.putExtra("narrowByShelterName",
                     searchShelterName.getText().toString());
         }
-        if (!("".equals(searchAge.getText().toString()))) {
+        if (!(searchAge.getText().toString().equals(""))) {
             toQueryResults.putExtra("narrowByAge",
                     searchAge.getText().toString());
         }
-        if (!("".equals(searchGender.getText().toString()))) {
+        if (!(searchGender.getText().toString().equals(""))) {
             toQueryResults.putExtra("narrowByGender",
                     searchGender.getText().toString());
         }

@@ -1,7 +1,6 @@
 package controllers;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,18 +10,17 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Objects;
 
 import model.Shelter;
 import team.gatech.edu.login.R;
 
-/**
- * search shelters
- */
 public class QueryResultsActivity extends AppCompatActivity {
 
-    @Nullable
-    private Shelter[] data = Shelter.toArray();
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager manager;
+    private Shelter[] data = Shelter.toArray();     //TODO(1): delete the assignment to Shelter.toArray()
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +35,19 @@ public class QueryResultsActivity extends AppCompatActivity {
         String gender;
 
         try {
-            shelterName = Objects.requireNonNull(options).getString("narrowByShelterName");
+            shelterName = options.getString("narrowByShelterName");
         } catch (NullPointerException e) {
             shelterName = "";
         }
 
         try {
-            age = Objects.requireNonNull(options).getString("narrowByAge");
+            age = options.getString("narrowByAge");
         } catch (NullPointerException e) {
             age = "";
         }
 
         try {
-            gender = Objects.requireNonNull(options).getString("narrowByGender");
+            gender = options.getString("narrowByGender");
         } catch (NullPointerException e) {
             gender = "";
         }
@@ -64,10 +62,10 @@ public class QueryResultsActivity extends AppCompatActivity {
             gender = "";
         }
 
-        if ("male".equals(gender.toLowerCase())) {
+        if (gender.toLowerCase().equals("male")) {
             gender = "men";
         }
-        if ("female".equals(gender.toLowerCase())) {
+        if (gender.toLowerCase().equals("female")) {
             gender = "women";
         }
 
@@ -76,61 +74,50 @@ public class QueryResultsActivity extends AppCompatActivity {
         data = new Shelter[results.size()];
         int i = 0;
         for (Shelter shelter : results) {
-            data[i] = shelter;
-            i++;
+            data[i++] = shelter;
         }
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewShelters);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewShelters);
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
+        manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
 
-        RecyclerView.Adapter adapter = new RecyclerViewAdapter(data);
+        adapter = new RecyclerViewAdapter(data);
         recyclerView.setAdapter(adapter);
 
-        RecyclerView.OnItemTouchListener listener = new RecyclerTouchListener(
+        RecyclerTouchListener listener = new RecyclerTouchListener(
                 QueryResultsActivity.this, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                detailView(position);
+                detailView(view, position);
             }
         });
 
         recyclerView.addOnItemTouchListener(listener);
     }
 
-    private void detailView(int position) {
+    private void detailView(View view, int position) {
         Intent detailView = new Intent(QueryResultsActivity.this,
                 DetailViewActivity.class);
         detailView.putExtra("content", data[position].toString());
         startActivity(detailView);
     }
 
-    /**
-     * prepare for search results
-     * @param shelterName shelter name
-     * @param age age
-     * @param gender gender
-     * @return shelters
-     */
     @VisibleForTesting
-    public static Collection<Shelter> prepareSearchResults(String shelterName, String age,
-                                                           String gender) {
-        Collection<model.Shelter> shelterValues = Shelter.shelterData.values();
-
-        if ("".equals(shelterName) && "".equals(age) && "".equals(gender)) {
-            return shelterValues;
+    public static Collection<Shelter> prepareSearchResults(String shelterName, String age, String gender) {
+        if (shelterName.equals("") && age.equals("") && gender.equals("")) {
+            return Shelter.shelterData.values();
         }
         Collection<Shelter> shelters = new ArrayList<>();
-        for (Shelter shelter : shelterValues) {
+        for (Shelter shelter : Shelter.shelterData.values()) {
             if (shelter.getName().toLowerCase().contains(
                     shelterName.toLowerCase())
                     && shelter.getRestrictions().toLowerCase().contains(
                             age.toLowerCase())
                     && shelter.getRestrictions().toLowerCase().contains(
                             gender.toLowerCase())) {
-                if (!("men".equals(gender.toLowerCase())
+                if (!(gender.toLowerCase().equals("men")
                         && shelter.getRestrictions().toLowerCase().contains(
                                 "women"))) {
                     shelters.add(shelter);

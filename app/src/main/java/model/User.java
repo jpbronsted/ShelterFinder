@@ -4,25 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
- * User values
+ * Created by jpbronsted on 2/26/18.
  */
+
 public class User implements Parcelable {
 
-    public static final Map<String, User> userRegistry = new HashMap<>();
+    public static HashMap<String, User> userRegistry = new HashMap<>();
 
-    private final String _id;
-    private final String _password;
-    private final AccountType _type;
+    private String _id;
+    private String _password;
+    private AccountType _type;
 
-    /**
-     * user constructor
-     * @param id id
-     * @param password pass
-     * @param type type
-     */
     public User(String id, String password, AccountType type) {
         _id = id;
         _password = password;
@@ -30,32 +24,20 @@ public class User implements Parcelable {
         userRegistry.put(_id, this);
     }
 
-    private User(Parcel parcel) {
+    public User(Parcel parcel) {
         _id = parcel.readString();
         _password = parcel.readString();
         _type = (AccountType) parcel.readSerializable();
     }
 
-    /**
-     * char sequence of id
-     * @return id
-     */
-    public CharSequence getID() {
+    public String getID() {
         return _id;
     }
 
-    /**
-     * get password
-     * @return password
-     */
     public String getPassword() {
         return _password;
     }
 
-    /**
-     * get type
-     * @return type
-     */
     public AccountType getType() {
         return _type;
     }
