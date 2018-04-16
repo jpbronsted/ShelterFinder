@@ -19,53 +19,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7925af3-78f1-41ea-bd20-e562dca3d577" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Kim_Yoonwoo.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/xml/backup_descriptor.xml" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/ClickListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/ClickListener.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/DetailViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/DetailViewActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/MapActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/MapActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/QueryResultsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/QueryResultsActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/RecyclerTouchListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/RecyclerTouchListener.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/RecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/RecyclerViewAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/RegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/RegisterActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/SearchActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/controllers/WelcomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/controllers/WelcomeActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/AccountType.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/AccountType.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/Address.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/Address.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/PhoneNumber.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/PhoneNumber.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/Shelter.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/Shelter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/State.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/State.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/model/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/house.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/housetree.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail_view.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_query_results.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_query_results.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shelter_detail_page.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shelter_detail_page.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recycler_card_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_card_layout.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/font_certs.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/font_certs.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/team/gatech/edu/login/PrepareSearchResultsTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/team/gatech/edu/login/PrepareSearchResultsTest.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/team/gatech/edu/login/validateTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/team/gatech/edu/login/validateTest.java" />
-      <change beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -2379,7 +2333,7 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
     <property name="android.profiler.active" value="true" />
     <property name="SearchEverywhereHistoryKey" value="readData&#9;PSI&#9;JAVA://controllers.WelcomeActivity#readData" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1523851095296" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1523851176539" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1523847898127" />
     <property name="run.code.analysis.last.selected.profile" value="aProject Default" />
   </component>
@@ -2987,7 +2941,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522119326882</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="James - renamed package names to lowercase">
+      <created>1523851192587</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1523851192587</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
