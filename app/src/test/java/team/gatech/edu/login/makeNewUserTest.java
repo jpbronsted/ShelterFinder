@@ -9,13 +9,15 @@ import controllers.RegisterActivity;
 import static org.junit.Assert.*;
 
 
-
 /**
- * Created by DK on 4/9/18.
+ * Test for makeNewUser()
  */
-
 public class makeNewUserTest {
 
+    /**
+     * checks user's id
+     * @throws Exception test
+     */
     @Test
     public void checkUserID() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");
@@ -23,6 +25,10 @@ public class makeNewUserTest {
         assertEquals(a.getID(), "user");
     }
 
+    /**
+     * checks user's password
+     * @throws Exception test
+     */
     @Test
     public void checkUserPass() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");
@@ -30,6 +36,10 @@ public class makeNewUserTest {
         assertEquals(a.getPassword(), "pass");
     }
 
+    /**
+     * check user type USER
+     * @throws Exception test
+     */
     @Test
     public void checkTypeUser() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");
@@ -37,6 +47,10 @@ public class makeNewUserTest {
         assertEquals(a.getType(), AccountType.USER);
     }
 
+    /**
+     * check user type ADMIN
+     * @throws Exception test
+     */
     @Test
     public void checkTypeAdmin() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "ADMIN");
@@ -44,6 +58,10 @@ public class makeNewUserTest {
         assertEquals(a.getType(), AccountType.ADMIN);
     }
 
+    /**
+     * check default user type
+     * @throws Exception test
+     */
     @Test
     public void checkDefault() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "ABC");

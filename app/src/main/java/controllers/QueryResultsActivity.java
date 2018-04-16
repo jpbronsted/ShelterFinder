@@ -1,6 +1,7 @@
 package controllers;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,10 +16,13 @@ import java.util.Objects;
 import model.Shelter;
 import team.gatech.edu.login.R;
 
+/**
+ * search shelters
+ */
 public class QueryResultsActivity extends AppCompatActivity {
 
-    private Shelter[] data = Shelter.toArray();     //TODO(1): delete the assignment to Shelter.toArray()
-
+    @Nullable
+    private Shelter[] data = Shelter.toArray();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,27 +93,37 @@ public class QueryResultsActivity extends AppCompatActivity {
                 QueryResultsActivity.this, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                detailView(view, position);
+                detailView(position);
             }
         });
 
         recyclerView.addOnItemTouchListener(listener);
     }
 
-    private void detailView(View view, int position) {
+    private void detailView(int position) {
         Intent detailView = new Intent(QueryResultsActivity.this,
                 DetailViewActivity.class);
         detailView.putExtra("content", data[position].toString());
         startActivity(detailView);
     }
 
+    /**
+     * prepare for search results
+     * @param shelterName shelter name
+     * @param age age
+     * @param gender gender
+     * @return shelters
+     */
     @VisibleForTesting
-    public static Collection<Shelter> prepareSearchResults(String shelterName, String age, String gender) {
+    public static Collection<Shelter> prepareSearchResults(String shelterName, String age,
+                                                           String gender) {
+        Collection<model.Shelter> shelterValues = Shelter.shelterData.values();
+
         if ("".equals(shelterName) && "".equals(age) && "".equals(gender)) {
-            return Shelter.shelterData.values();
+            return shelterValues;
         }
         Collection<Shelter> shelters = new ArrayList<>();
-        for (Shelter shelter : Shelter.shelterData.values()) {
+        for (Shelter shelter : shelterValues) {
             if (shelter.getName().toLowerCase().contains(
                     shelterName.toLowerCase())
                     && shelter.getRestrictions().toLowerCase().contains(

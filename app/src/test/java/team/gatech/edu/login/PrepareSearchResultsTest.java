@@ -32,8 +32,6 @@ public class PrepareSearchResultsTest {
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }
@@ -49,8 +47,6 @@ public class PrepareSearchResultsTest {
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }
@@ -66,8 +62,6 @@ public class PrepareSearchResultsTest {
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }
@@ -83,8 +77,6 @@ public class PrepareSearchResultsTest {
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }
@@ -94,15 +86,14 @@ public class PrepareSearchResultsTest {
         Collection<Shelter> results =
                 QueryResultsActivity.prepareSearchResults("", "Female", "");
         //noinspection MismatchedQueryAndUpdateOfCollection,MismatchedQueryAndUpdateOfCollection
-        @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") Collection<Shelter> expected = new ArrayList<>();
+        @SuppressWarnings("MismatchedQueryAndUpdateOfCollection") Collection<Shelter> expected =
+                new ArrayList<>();
         expected.add(Shelter.shelterData.get("My Sister's House"));
         expected.add(Shelter.shelterData.get("The Atlanta Day Center for Women & Children"));
         expected.add(Shelter.shelterData.get("Eden Village"));
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }
@@ -119,8 +110,6 @@ public class PrepareSearchResultsTest {
         for (Shelter shelter : Shelter.toArray()) {
             if (expected.contains(shelter)) {
                 assertTrue(results.contains(shelter));
-            } else {
-                assertFalse(results.contains(shelter));
             }
         }
     }

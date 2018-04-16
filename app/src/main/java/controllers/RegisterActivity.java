@@ -14,6 +14,9 @@ import model.AccountType;
 import team.gatech.edu.login.R;
 import model.User;
 
+/**
+ * Register User
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText id;
@@ -30,9 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         type = findViewById(R.id.sprType);
         Button register = findViewById(R.id.btnRegister);
 
-       // type.setAdapter(new ArrayAdapter<AccountType>(this,android.R.layout.simple_spinner_item, AccountType.values()));
 
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter(this,
+        ArrayAdapter<AccountType> typeAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, AccountType.values());
         typeAdapter.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
@@ -51,6 +53,12 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * create new user id & password
+     * @param userID user
+     * @param userPassword pass
+     * @param userType type: USER/ADMIN
+     */
     @VisibleForTesting
     public static void makeNewUser(String userID, String userPassword,
                              String userType) {

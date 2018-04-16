@@ -14,9 +14,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * first page of the app
+ */
 public class WelcomeActivity extends AppCompatActivity {
 
-    static boolean startup = true;
+    private boolean startup = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

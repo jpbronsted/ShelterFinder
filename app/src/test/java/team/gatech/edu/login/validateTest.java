@@ -7,20 +7,31 @@ import controllers.RegisterActivity;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
+/**
+ * check validate()
+ */
 public class validateTest {
 
+    /**
+     * check user name letter
+     * @throws Exception test
+     */
     @Test
     public void userNameLetter() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");
         User username = User.userRegistry.get("user");
-        if (username.getID().length() >= 3) {
-            assertTrue("username is valid!",username.getID().length() >= 3);
+        int len = username.getID().length();
+        if (len >= 3) {
+            assertTrue("username is valid!",len >= 3);
         } else {
-            assertFalse("username is less than three letters!", username.getID().length() < 3);
+            assertFalse("username is less than three letters!", len < 3);
         }
     }
 
+    /**
+     * check user name special case
+     * @throws Exception test
+     */
     @Test
     public void userNameSpecialCase() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");
@@ -43,6 +54,10 @@ public class validateTest {
         assertTrue("No special letter is used",true);
     }
 
+    /**
+     * check password Blank
+     * @throws Exception test
+     */
     @Test
     public void passwordBlank() throws Exception {
         RegisterActivity.makeNewUser("user", "pass", "USER");

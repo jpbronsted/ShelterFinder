@@ -3,13 +3,30 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Shelter
+ */
 public class Shelter {
-    private String name, phoneNumber, address, capacity, restrictions;
-    private Double latitude, longitude;
+    private String name;
+    private String phoneNumber;
+    private String address;
+    private String capacity;
+    private String restrictions;
+    private Double latitude;
+    private Double longitude;
 
     public static final Map<String, Shelter> shelterData = new HashMap<>();
 
+    /**
+     * shelter constructor
+     * @param name name
+     * @param phoneNumber phoneNumber
+     * @param address address
+     * @param capacity capacity
+     * @param latitude latitude
+     * @param longitude longitude
+     * @param restrictions restrictions
+     */
     public Shelter(String name, String phoneNumber, String address,
                    String capacity, Double latitude, Double longitude,
                    String restrictions) {
@@ -22,88 +39,129 @@ public class Shelter {
         this.restrictions = restrictions;
     }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public Shelter() {
-//        this("", null, null, null, 0.0, 0.0, "");
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * null constructor
+     */
+    public Shelter() {
+        this("", null, null, null, 0.0, 0.0, "");
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set address
+     * @param address address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
+    /**
+     * set capacity
+     * @param capacity capacity
+     */
     public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setLatitude(Double latitude) {
-//        this.latitude = latitude;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set latitude
+     * @param latitude latitude
+     */
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setLongitude(Double longitude) {
-//        this.longitude = longitude;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set longitude
+     * @param longitude longitude
+     */
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set name
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setPhoneNumber(String phoneNumber) {
-//        this.phoneNumber = phoneNumber;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set phone number
+     * @param phoneNumber phone number
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public void setRestrictions(String restrictions) {
-//        this.restrictions = restrictions;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * set restrictions
+     * @param restrictions restrictions
+     */
+    public void setRestrictions(String restrictions) {
+        this.restrictions = restrictions;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public String getAddress() {
-//        return address;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * get address
+     * @return address
+     */
+    public String getAddress() {
+        return address;
+    }
 
+    /**
+     * get restrictions
+     * @return restrictions
+     */
     public String getRestrictions() {
         return restrictions;
     }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public Double getLatitude() {
-//        return latitude;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * get latitude
+     * @return latitude
+     */
+    public Double getLatitude() {
+        return latitude;
+    }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public Double getLongitude() {
-//        return longitude;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * get longitude
+     * @return longitude
+     */
+    public Double getLongitude() {
+        return longitude;
+    }
 
+    /**
+     * get capacity
+     * @return capacity
+     */
     public String getCapacity() {
         return capacity;
     }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//    public String getPhoneNumber() {
-//        return phoneNumber;
-//    }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+    /**
+     * get phone number
+     * @return phone number
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    /**
+     * get name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * turn to string
+     * @return string value
+     */
     @Override
     public String toString() {
         return "Name: " + name + "\n" + "Capacity: " + capacity + "\n"
@@ -113,6 +171,10 @@ public class Shelter {
                 + "Address: " + "\n" + address + "\n\n";
     }
 
+    /**
+     * turn to array
+     * @return array value
+     */
     public static Shelter[] toArray() {
         Shelter[] shelterArray = new Shelter[shelterData.size()];
         int i = 0;

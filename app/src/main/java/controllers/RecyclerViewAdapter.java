@@ -10,28 +10,40 @@ import team.gatech.edu.login.R;
 
 import model.Shelter;
 
-
+/**
+ * recycler view
+ */
 public class RecyclerViewAdapter
         extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private final Shelter[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView textView;
-        public Shelter shelter;
+        private final TextView textView;
+        private Shelter shelter;
 
-        public ViewHolder(TextView textView) {
+        /**
+         * view holder
+         * @param textView text view
+         */
+        ViewHolder(TextView textView) {
             super(textView);
             this.textView = textView;
         }
 
-// --Commented out by Inspection START (2018-04-15 오후 11:46):
-//        public Shelter getShelter() {
-//            return shelter;
-//        }
-// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
+        /**
+         * get shelter
+         * @return shelter
+         */
+        public Shelter getShelter() {
+            return shelter;
+        }
     }
 
-    public RecyclerViewAdapter(Shelter[] data) {
+    /**
+     * recycler view constructor
+     * @param data data
+     */
+    RecyclerViewAdapter(Shelter[] data) {
         this.data = data;
     }
 

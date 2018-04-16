@@ -13,15 +13,16 @@ import java.util.Objects;
 
 import model.Shelter;
 
+/**
+ * Detailed View of shelters
+ */
 public class DetailViewActivity extends AppCompatActivity {
 
-    TextView viewShelterName; // --Commented out by Inspection (2018-04-15 오후 11:46):Vacancy, updatedVacancy;
-    EditText claimVacancy;
-    Button backBtn, claimBtn, cancelBtn;
-    // --Commented out by Inspection (2018-04-15 오후 11:46):List<String> list;
-    String shelterName;
-    String capacity;
-    final Shelter[] shel = Shelter.shelterData.values().toArray(new Shelter[0]);
+    private TextView updatedVacancy;
+    private EditText claimVacancy;
+    private String shelterName;
+    private String capacity;
+    private final Shelter[] shel = Shelter.shelterData.values().toArray(new Shelter[0]);
 
 
 
@@ -31,11 +32,11 @@ public class DetailViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail_page);
 
-        backBtn = findViewById(R.id.backBtn);
-        claimBtn = findViewById(R.id.claimBtn);
-        cancelBtn = findViewById(R.id.cancelBtn);
-        viewShelterName = findViewById(R.id.viewShelterName);
-        Vacancy = findViewById(R.id.Vacancy);
+        Button backBtn = findViewById(R.id.backBtn);
+        Button claimBtn = findViewById(R.id.claimBtn);
+        Button cancelBtn = findViewById(R.id.cancelBtn);
+        TextView viewShelterName = findViewById(R.id.viewShelterName);
+        TextView vacancy = findViewById(R.id.Vacancy);
         updatedVacancy = findViewById(R.id.updatedVacancy);
         claimVacancy = findViewById(R.id.claimVacancy);
 
@@ -95,7 +96,8 @@ public class DetailViewActivity extends AppCompatActivity {
 
                     if (shelterName_1.equals(shelterName)) {
                         if ((Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum) >= 0) {
-                            int newCapacity = Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum;
+                            int newCapacity = Integer.parseInt(shelter.getCapacity()) -
+                                    claimedVacancyNum;
                             shelter.setCapacity("" + newCapacity);
                             updatedVacancy.setText(shelter.getCapacity());
                         }

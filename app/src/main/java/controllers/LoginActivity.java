@@ -11,6 +11,9 @@ import android.widget.TextView;
 import team.gatech.edu.login.R;
 import model.User;
 
+/**
+ * Login Activity
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private EditText ID;

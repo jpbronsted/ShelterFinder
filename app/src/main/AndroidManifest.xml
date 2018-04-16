@@ -24,6 +24,7 @@
         <activity android:name="controllers.RegisterActivity" />
         <activity android:name="controllers.DetailViewActivity" />
         <activity android:name="controllers.SearchActivity" />
+        <activity android:name="controllers.MapActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

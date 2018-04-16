@@ -12,7 +12,9 @@ import java.util.Objects;
 
 import team.gatech.edu.login.R;
 
-
+/**
+ * Search shelter
+ */
 public class SearchActivity extends AppCompatActivity {
 
     private EditText searchShelterName;

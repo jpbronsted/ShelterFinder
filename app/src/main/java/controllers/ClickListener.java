@@ -2,6 +2,6 @@ package controllers;
 
 import android.view.View;
 
-public interface ClickListener {
+interface ClickListener {
     void onClick(View view, int position);
 }
