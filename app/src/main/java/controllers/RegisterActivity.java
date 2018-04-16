@@ -2,6 +2,7 @@ package controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -55,7 +56,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void makeNewUser(String userID, String userPassword,
+    @VisibleForTesting
+    public static void makeNewUser(String userID, String userPassword,
                              String userType) {
         AccountType type = null;
         switch (userType) {
