@@ -14,26 +14,21 @@ import model.AccountType;
 import team.gatech.edu.login.R;
 import model.User;
 
-/**
- * Created by jpbronsted on 2/26/18.
- */
-
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText id;
     private EditText password;
     private Spinner type;
-    private Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        id = (EditText) findViewById(R.id.etID);
-        password = (EditText) findViewById(R.id.etPassword);
-        type = (Spinner) findViewById(R.id.sprType);
-        register = (Button) findViewById(R.id.btnRegister);
+        id = findViewById(R.id.etID);
+        password = findViewById(R.id.etPassword);
+        type = findViewById(R.id.sprType);
+        Button register = findViewById(R.id.btnRegister);
 
        // type.setAdapter(new ArrayAdapter<AccountType>(this,android.R.layout.simple_spinner_item, AccountType.values()));
 

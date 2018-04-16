@@ -10,15 +10,13 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 import model.Shelter;
 import team.gatech.edu.login.R;
 
 public class QueryResultsActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager manager;
     private Shelter[] data = Shelter.toArray();     //TODO(1): delete the assignment to Shelter.toArray()
 
     @Override
@@ -35,19 +33,19 @@ public class QueryResultsActivity extends AppCompatActivity {
         String gender;
 
         try {
-            shelterName = options.getString("narrowByShelterName");
+            shelterName = Objects.requireNonNull(options).getString("narrowByShelterName");
         } catch (NullPointerException e) {
             shelterName = "";
         }
 
         try {
-            age = options.getString("narrowByAge");
+            age = Objects.requireNonNull(options).getString("narrowByAge");
         } catch (NullPointerException e) {
             age = "";
         }
 
         try {
-            gender = options.getString("narrowByGender");
+            gender = Objects.requireNonNull(options).getString("narrowByGender");
         } catch (NullPointerException e) {
             gender = "";
         }
@@ -62,10 +60,10 @@ public class QueryResultsActivity extends AppCompatActivity {
             gender = "";
         }
 
-        if (gender.toLowerCase().equals("male")) {
+        if ("male".equals(gender.toLowerCase())) {
             gender = "men";
         }
-        if (gender.toLowerCase().equals("female")) {
+        if ("female".equals(gender.toLowerCase())) {
             gender = "women";
         }
 
@@ -74,19 +72,20 @@ public class QueryResultsActivity extends AppCompatActivity {
         data = new Shelter[results.size()];
         int i = 0;
         for (Shelter shelter : results) {
-            data[i++] = shelter;
+            data[i] = shelter;
+            i++;
         }
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewShelters);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewShelters);
         recyclerView.setHasFixedSize(true);
 
-        manager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
 
-        adapter = new RecyclerViewAdapter(data);
+        RecyclerView.Adapter adapter = new RecyclerViewAdapter(data);
         recyclerView.setAdapter(adapter);
 
-        RecyclerTouchListener listener = new RecyclerTouchListener(
+        RecyclerView.OnItemTouchListener listener = new RecyclerTouchListener(
                 QueryResultsActivity.this, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -106,7 +105,7 @@ public class QueryResultsActivity extends AppCompatActivity {
 
     @VisibleForTesting
     public static Collection<Shelter> prepareSearchResults(String shelterName, String age, String gender) {
-        if (shelterName.equals("") && age.equals("") && gender.equals("")) {
+        if ("".equals(shelterName) && "".equals(age) && "".equals(gender)) {
             return Shelter.shelterData.values();
         }
         Collection<Shelter> shelters = new ArrayList<>();
@@ -117,7 +116,7 @@ public class QueryResultsActivity extends AppCompatActivity {
                             age.toLowerCase())
                     && shelter.getRestrictions().toLowerCase().contains(
                             gender.toLowerCase())) {
-                if (!(gender.toLowerCase().equals("men")
+                if (!("men".equals(gender.toLowerCase())
                         && shelter.getRestrictions().toLowerCase().contains(
                                 "women"))) {
                     shelters.add(shelter);

@@ -13,12 +13,8 @@ import org.apache.commons.csv.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Iterator;
 
 public class WelcomeActivity extends AppCompatActivity {
-
-    private Button toLogin;
-    private Button toRegister;
 
     static boolean startup = true;
 
@@ -27,8 +23,8 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        toLogin = (Button) findViewById(R.id.btnToLogin);
-        toRegister = (Button) findViewById(R.id.btnToRegister);
+        Button toLogin = findViewById(R.id.btnToLogin);
+        Button toRegister = findViewById(R.id.btnToRegister);
 
         final Intent login = new Intent(WelcomeActivity.this, LoginActivity.class);
         final Intent register = new Intent(WelcomeActivity.this, RegisterActivity.class);
@@ -61,9 +57,7 @@ public class WelcomeActivity extends AppCompatActivity {
         InputStream inStream = assMan.open("data.csv");
         CSVParser parser = CSVParser.parse(inStream, StandardCharsets.UTF_8,
                 CSVFormat.DEFAULT.withFirstRecordAsHeader());
-        Iterator<CSVRecord> iterator = parser.getRecords().iterator();
-        while (iterator.hasNext()) {
-            CSVRecord next = iterator.next();
+        for (CSVRecord next : parser.getRecords()) {
             String name = next.get("Shelter Name");
             String capacity = next.get("Capacity");
             String restrictions = next.get("Restrictions");

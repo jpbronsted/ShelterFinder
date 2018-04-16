@@ -24,10 +24,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ID = (EditText) findViewById(R.id.etID);
-        Password = (EditText) findViewById(R.id.etPassword);
-        Info = (TextView) findViewById(R.id.tvInfo);
-        Login = (Button) findViewById(R.id.btnLogin);
+        ID = findViewById(R.id.etID);
+        Password = findViewById(R.id.etPassword);
+        Info = findViewById(R.id.tvInfo);
+        Login = findViewById(R.id.btnLogin);
 
         Info.setText("# of attempts remaining: 5");
 
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String userID, String userPassword) {
         User requestedUser = User.userRegistry.get(userID);
-        if (requestedUser != null &&
+        if ((requestedUser != null) &&
                 requestedUser.getPassword().equals(userPassword)) {
             Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
             startActivity(intent);

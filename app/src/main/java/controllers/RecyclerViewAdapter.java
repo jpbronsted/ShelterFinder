@@ -10,16 +10,13 @@ import team.gatech.edu.login.R;
 
 import model.Shelter;
 
-/**
- * Created by jpbronsted on 3/7/18.
- */
 
 public class RecyclerViewAdapter
         extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private Shelter[] data;
+    private final Shelter[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        public final TextView textView;
         public Shelter shelter;
 
         public ViewHolder(TextView textView) {
@@ -27,9 +24,11 @@ public class RecyclerViewAdapter
             this.textView = textView;
         }
 
-        public Shelter getShelter() {
-            return shelter;
-        }
+// --Commented out by Inspection START (2018-04-15 오후 11:46):
+//        public Shelter getShelter() {
+//            return shelter;
+//        }
+// --Commented out by Inspection STOP (2018-04-15 오후 11:46)
     }
 
     public RecyclerViewAdapter(Shelter[] data) {

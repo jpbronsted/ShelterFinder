@@ -75,7 +75,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView3"
         android:layout_width="137dp"
         android:layout_height="122dp"
         android:layout_marginBottom="8dp"
@@ -88,6 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
-        app:srcCompat="@drawable/coloredhouse" />
+        app:srcCompat="@drawable/coloredhouse"
+        android:contentDescription="TODO" />
 
 </android.support.constraint.ConstraintLayout>

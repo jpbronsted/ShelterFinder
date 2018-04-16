@@ -1,6 +1,3 @@
-/**
- * Created by DK on 4/9/18.
- */
 package team.gatech.edu.login;
 
 import org.junit.Test;
@@ -10,10 +7,6 @@ import controllers.RegisterActivity;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
-/**
- * Created by kevinkang on 4/9/18.
- */
 
 public class validateTest {
 
@@ -34,17 +27,17 @@ public class validateTest {
         User username = User.userRegistry.get("user");
         int usernameLength = username.getID().length();
         for (int i = 0; i < username.getID().length(); i++) {
-            if (i > 31 && i < 48) {
-                assertFalse("Special Letter is used! try without letters !#$%&'()*+`-./",i > 32 && i < 48);
+            if ((i > 31) && (i < 48)) {
+                assertFalse("Special Letter is used! try without letters !#$%&'()*+`-./", i > 32);
             }
-            if (i > 57 && i < 65) {
-                assertFalse("Special Letter is used! try without letters :;<=>?@" ,i > 57 && i < 65);
+            if ((i > 57) && (i < 65)) {
+                assertFalse("Special Letter is used! try without letters :;<=>?@" , true);
             }
-            if (i > 90 && i < 97) {
-                assertFalse("Special Letter is used! try without letters []^-`" ,i > 90 && i < 97);
+            if ((i > 90) && (i < 97)) {
+                assertFalse("Special Letter is used! try without letters []^-`" , true);
             }
-            if (i > 122 && i < 127) {
-                assertFalse("Special Letter is used! try without letters {|}~ ",i > 122 && i < 127);
+            if ((i > 122) && (i < 127)) {
+                assertFalse("Special Letter is used! try without letters {|}~ ", true);
             }
         }
         assertTrue("No special letter is used",true);
@@ -60,6 +53,5 @@ public class validateTest {
             assertTrue("Password is valid", true);
         }
     }
-
 
 }
