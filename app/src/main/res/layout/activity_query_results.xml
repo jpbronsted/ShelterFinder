@@ -12,4 +12,12 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 
+    <Button
+        android:id="@+id/Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_abosluteY="16dp" />
+
 </android.support.constraint.ConstraintLayout>

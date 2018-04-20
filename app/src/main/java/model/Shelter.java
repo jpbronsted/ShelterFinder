@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by jpbronsted on 3/4/18.
  */
 
-public class Shelter {
+public class Shelter implements Serializable {
     private String name;
     private String phoneNumber;
     private String address;

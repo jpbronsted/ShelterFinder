@@ -33,11 +33,16 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAlgv-zbj2pgcS5nv76kc-bpuJcHo9-xK0"
             />
+        <!--
         <meta-data
             tools:replace="android:value"
             android:name="com.google.android.gms.version"
             android:value="com.google.android.gms:play-services-maps:12.0.1"
             />
+            -->
+        <meta-data
+            android:name="com.google.android.gma.version"
+            android:value="12211000" />
     </application>
 
 </manifest>
