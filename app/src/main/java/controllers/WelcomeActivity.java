@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.content.Context;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import model.Shelter;
 import team.gatech.edu.login.R;
 import org.apache.commons.csv.*;
@@ -26,7 +30,9 @@ public class WelcomeActivity extends AppCompatActivity {
     RelativeLayout tophalf,bothalf;
     Animation uptodown, downtoup;
 
-    static boolean startup = true;
+    //private DatabaseReference database;
+
+    //static boolean startup = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,9 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+        //database = FirebaseDatabase.getInstance().getReference();
+
+        /*
         if (startup) {
             startup = false;
             try {
@@ -66,8 +75,10 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         }
+        */
     }
 
+    /*
     private void readData(Context context) throws IOException {
         AssetManager assMan = context.getAssets();
         InputStream inStream = assMan.open("data.csv");
@@ -83,10 +94,12 @@ public class WelcomeActivity extends AppCompatActivity {
             Double longitude = Double.valueOf(next.get("Longitude "));
             String address = next.get("Address");
             String phoneNumber = next.get("Phone Number");
-            Shelter.shelterData.put(name, new Shelter(name, phoneNumber,
-                    address, capacity, latitude, longitude, restrictions));
+            Shelter shelter = new Shelter(name, phoneNumber,
+                    address, capacity, latitude, longitude, restrictions);
+            database.child("shelters").setValue(shelter);
         }
         parser.close();
         inStream.close();
     }
+    */
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import team.gatech.edu.login.R;
 
 import model.Shelter;
@@ -16,7 +18,7 @@ import model.Shelter;
 
 public class RecyclerViewAdapter
         extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private Shelter[] data;
+    private List<Shelter> data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
@@ -32,7 +34,7 @@ public class RecyclerViewAdapter
         }
     }
 
-    public RecyclerViewAdapter(Shelter[] data) {
+    public RecyclerViewAdapter(List<Shelter> data) {
         this.data = data;
     }
 
@@ -47,12 +49,12 @@ public class RecyclerViewAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(data[position].toString());
-        holder.shelter = data[position];
+        holder.textView.setText(data.get(position).toString());
+        holder.shelter = data.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return data.size();
     }
 }
