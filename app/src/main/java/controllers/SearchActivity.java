@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import team.gatech.edu.login.R;
 
 /**
@@ -24,6 +26,8 @@ public class SearchActivity extends AppCompatActivity {
     private EditText searchGender;
 
     private Intent toQueryResults;
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class SearchActivity extends AppCompatActivity {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                auth.signOut();
                 startActivity(back);
             }
         });
@@ -55,6 +60,8 @@ public class SearchActivity extends AppCompatActivity {
                 prepareSearchResults();
             }
         });
+
+        auth = FirebaseAuth.getInstance();
     }
 
     private void prepareSearchResults() {

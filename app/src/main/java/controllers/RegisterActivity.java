@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import model.AccountType;
 import team.gatech.edu.login.R;
@@ -24,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password;
     private Spinner type;
     private Button register;
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +59,18 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(welcome);
             }
         });
+
+        auth = FirebaseAuth.getInstance();
     }
 
     @VisibleForTesting
-    public static void makeNewUser(String userID, String userPassword,
+    public void makeNewUser(String userID, String userPassword,
                              String userType) {
-        AccountType type = null;
-        switch (userType) {
-            case "USER":
-                type = AccountType.USER;
-                break;
-            case "ADMIN":
-                type = AccountType.ADMIN;
-                break;
+        try {
+            auth.createUserWithEmailAndPassword(userID, userPassword);
+            Log.w("firebase debugging", "user creation succeeded: " + userID);
+        } catch (Exception e) {
+            Log.e("firebase_debugging", "user creation failed: " + userID + "... Error details: " + e.getMessage());
         }
-        User.userRegistry.put(userID, new User(userID, userPassword, type));
     }
 }
