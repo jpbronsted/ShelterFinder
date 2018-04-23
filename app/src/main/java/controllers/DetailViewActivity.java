@@ -2,6 +2,7 @@ package controllers;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,7 +11,11 @@ import team.gatech.edu.login.R;
 import android.view.View;
 import android.content.Intent;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.InputStream;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Arrays;
@@ -24,22 +29,12 @@ import model.Shelter;
 
 public class DetailViewActivity extends AppCompatActivity {
 
-    TextView viewShelterName, Vacancy, updatedVacancy;
-    EditText claimVacancy;
-    Button backBtn, claimBtn, cancelBtn;
-    List<String> list;
-    String shelterName;
-    String capacity;
-    Shelter[] shel = Shelter.shelterData.values().toArray(new Shelter[0]);
-//    int[] shelcap = new int[shel.length];
-//    private void shelCap(Shelter[] shel) {
-//        for(int i = 0; i <= shel.length; i++) {
-//            shelcap[i] = Integer.parseInt(shel[i].getCapacity());
-//        }
-//    }
-//
+    private TextView viewShelterName, Vacancy, updatedVacancy;
+    private EditText claimVacancy;
+    private Button backBtn, claimBtn, cancelBtn;
+    private Shelter selectedShelter;
 
-
+    private DatabaseReference database;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,38 +49,33 @@ public class DetailViewActivity extends AppCompatActivity {
         updatedVacancy = (TextView) findViewById(R.id.updatedVacancy);
         claimVacancy = (EditText) findViewById(R.id.claimVacancy);
 
-
+        database = FirebaseDatabase.getInstance().getReference();
 
 
         // should display selected shelter's name and vacancy
 
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
-            String text = extras.getString("content");
-            int firstColon = text.indexOf(":");
-            int secondColon = text.indexOf(":",firstColon +1);
-            int thirdColon = text.indexOf(":", secondColon + 1);
-            shelterName = text.substring(firstColon + 1, secondColon - 8 );
-            capacity = text.substring(secondColon + 1, thirdColon - 8 );
-            viewShelterName.setText(shelterName);
-            updatedVacancy.setText(capacity);
+            selectedShelter = (Shelter) extras.getSerializable("content");
+            viewShelterName.setText(selectedShelter.getName());
+            updatedVacancy.setText(selectedShelter.getCapacity());
         }
-
-
-
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                database.child("shelters").child(selectedShelter.getName())
+                        .child("capacity").setValue(selectedShelter
+                        .getCapacity());
                 startActivity(new Intent(getApplicationContext(), QueryResultsActivity.class));
             }
         });
 
-
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updatedVacancy.setText(capacity);
+                updatedVacancy.setText(selectedShelter.getCapacity());
             }
         });
 
@@ -101,7 +91,17 @@ public class DetailViewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String claimedVacancy= claimVacancy.getText().toString();
                 int claimedVacancyNum = Integer.parseInt(claimedVacancy);
-                //Collection<Shelter> shelters = new ArrayList<>();
+
+                int newCapacity = Integer.parseInt(
+                        selectedShelter.getCapacity()) - claimedVacancyNum;
+
+                if (newCapacity >= 0) {
+                    selectedShelter.setCapacity("" + newCapacity);
+                    updatedVacancy.setText(selectedShelter.getCapacity());
+                }
+
+
+                /*
                 for (Shelter shelter : shel) {
                     String shelterName_1 = shelter.getName().toLowerCase();
                     shelterName_1 = shelterName_1.replaceAll("\\s+","");
@@ -110,12 +110,13 @@ public class DetailViewActivity extends AppCompatActivity {
 
                     if (shelterName_1.equals(shelterName)) {
                         if (Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum >= 0) {
-                            int newCapacity = Integer.parseInt(shelter.getCapacity()) - claimedVacancyNum;
+                            int newCapacity = ;
                             shelter.setCapacity("" + newCapacity);
                             updatedVacancy.setText(shelter.getCapacity());
                         }
                     }
                 }
+                */
             }
         });
 

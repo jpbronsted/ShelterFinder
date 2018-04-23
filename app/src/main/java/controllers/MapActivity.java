@@ -10,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 import model.Shelter;
 import team.gatech.edu.login.R;
 
@@ -25,7 +27,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     public void onMapReady(GoogleMap map) {
-        for (Shelter shelter : (Shelter[]) getIntent().getSerializableExtra("shelters")) {
+        for (Shelter shelter : (List<Shelter>) getIntent().getSerializableExtra("shelters")) {
             map.addMarker(new MarkerOptions().position(new LatLng(shelter.getLatitude(), shelter.getLongitude())).title(shelter.getName()));
         }
     }

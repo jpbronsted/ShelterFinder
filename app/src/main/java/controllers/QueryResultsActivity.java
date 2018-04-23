@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -35,6 +36,7 @@ public class QueryResultsActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager manager;
     private Button Map;
+    private Button backToSearch;
     private List<Shelter> results;
 
     private FirebaseAuth auth;
@@ -49,7 +51,8 @@ public class QueryResultsActivity extends AppCompatActivity {
 
         final Bundle options = startIntent.getExtras();
 
-        Map = (Button) findViewById(R.id.Map);
+        Map = (Button) findViewById(R.id.btnMap);
+        backToSearch = (Button) findViewById(R.id.btnBackToSearch);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference();
@@ -74,8 +77,15 @@ public class QueryResultsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(QueryResultsActivity.this, MapActivity.class);
-                intent.putExtra("shelters", results.toArray());
+                intent.putExtra("shelters", (Serializable) results);
                 startActivity(intent);
+            }
+        });
+
+        backToSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(QueryResultsActivity.this, SearchActivity.class));
             }
         });
 
@@ -149,7 +159,7 @@ public class QueryResultsActivity extends AppCompatActivity {
     private void detailView(View view, int position) {
         Intent detailView = new Intent(QueryResultsActivity.this,
                 DetailViewActivity.class);
-        detailView.putExtra("content", results.get(position).toString());
+        detailView.putExtra("content", results.get(position));
         startActivity(detailView);
     }
 
