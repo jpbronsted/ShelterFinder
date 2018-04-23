@@ -5,8 +5,12 @@ import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.content.Context;
+import android.widget.RelativeLayout;
+
 import model.Shelter;
 import team.gatech.edu.login.R;
 import org.apache.commons.csv.*;
@@ -19,6 +23,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private Button toLogin;
     private Button toRegister;
+    RelativeLayout tophalf,bothalf;
+    Animation uptodown, downtoup;
 
     static boolean startup = true;
 
@@ -29,6 +35,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
         toLogin = (Button) findViewById(R.id.btnToLogin);
         toRegister = (Button) findViewById(R.id.btnToRegister);
+        tophalf = (RelativeLayout) findViewById(R.id.tophalf);
+        bothalf = (RelativeLayout) findViewById(R.id.bothalf);
+        uptodown = AnimationUtils.loadAnimation(this,R.anim.uptodown);
+        downtoup = AnimationUtils.loadAnimation(this,R.anim.downtoup);
+        tophalf.setAnimation(uptodown);
+        bothalf.setAnimation(downtoup);
 
         final Intent login = new Intent(WelcomeActivity.this, LoginActivity.class);
         final Intent register = new Intent(WelcomeActivity.this, RegisterActivity.class);
