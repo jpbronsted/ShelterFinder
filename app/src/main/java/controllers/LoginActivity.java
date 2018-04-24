@@ -1,14 +1,17 @@
 package controllers;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Parcel;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button Login;
     private int counter = 5;
 
+    ImageView imageView;
+    AnimationDrawable anim;
+
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
 
@@ -41,6 +47,11 @@ public class LoginActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.etPassword);
         Info = (TextView) findViewById(R.id.tvInfo);
         Login = (Button) findViewById(R.id.btnLogin);
+        imageView = (ImageView)findViewById(R.id.imageView10);
+        if (imageView == null) throw new AssertionError();
+        imageView.setBackgroundResource(R.drawable.animation_loading);
+        anim = (AnimationDrawable)imageView.getBackground() ;
+        anim.start();
 
         Info.setText("# of attempts remaining: 5");
 

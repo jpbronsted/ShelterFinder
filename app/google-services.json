@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1042382675359",
+    "firebase_url": "https://shelter-finder-9523f.firebaseio.com",
+    "project_id": "shelter-finder-9523f",
+    "storage_bucket": "shelter-finder-9523f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042382675359:android:d8d434ea421dbbd6",
+        "android_client_info": {
+          "package_name": "team.gatech.edu.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042382675359-i3emk7ouvdv4ob2sc9d7u0q82jqn5mqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFsk9mK9Sxh2TYV9jg737a003W_Cc8QV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
